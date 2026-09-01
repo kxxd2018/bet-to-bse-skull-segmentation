@@ -56,14 +56,6 @@ python -c "import nipype; print(nipype.__version__)"
 
 For the full installation guide with additional options (conda, source builds, etc.), see the [BrainSuite Nipype installation tutorial](https://brainsuite.org/nipype_installation/).
 
-You will also need to set the `FSLDIR` environment variable so Nipype can locate your FSL installation. Add these lines to your `~/.bashrc`:
-
-```bash
-export FSLDIR=/usr/local/fsl
-export PATH=$PATH:$FSLDIR/bin
-source $FSLDIR/etc/fslconf/fsl.sh
-```
-
 ## Obtaining a BSE reference mask
 
 This pipeline needs an existing BrainSuite BSE mask as the registration target for the BET mask. Generate one from your T1 image using BrainSuite's command-line `bse` tool:
