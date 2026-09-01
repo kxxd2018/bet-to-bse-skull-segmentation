@@ -38,55 +38,33 @@ Close and reopen your terminal once it finishes. For custom/advanced installs, d
 3. Add `/opt/BrainSuite23a/bin` to your `PATH`.
 4. BrainSuite's GUI and some tools additionally require MATLAB Compiler Runtime (MCR) 2023a — install this first. See this [BrainSuite/Brainstorm install walkthrough](https://neuroimage.usc.edu/brainstorm/Tutorials/BstBrainSuite) for details.
 
-### Setting up Python and Nipype
+### Installing Nipype
 
-This pipeline uses [Nipype](https://nipype.readthedocs.io/) to orchestrate FSL and BrainSuite as workflow nodes. It is recommended to install it inside a virtual environment to avoid conflicts with system packages.
+[Nipype](https://nipype.readthedocs.io/) is the Python workflow engine this pipeline uses to orchestrate FSL and BrainSuite. Install it with pip:
 
-1. **Check your Python version** (3.8+ required):
+```bash
+python -m pip install nipype
+```
 
-   ```bash
-   python3 --version
-   ```
+This installs Nipype and all its dependencies automatically, including [NetworkX](https://networkx.org/), [Traits](https://docs.enthought.com/traits/), and [nibabel](https://nipy.org/nibabel/) — no manual step is needed.
 
-2. **Create a virtual environment**:
+Verify the installation:
 
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
+```bash
+python -c "import nipype; print(nipype.__version__)"
+```
 
-3. **Install Nipype** and all Python dependencies:
+For the full installation guide with additional options (conda, source builds, etc.), see the [BrainSuite Nipype installation tutorial](https://brainsuite.org/nipype_installation/).
 
-   ```bash
-   pip install --upgrade pip
-   pip install -r requirements.txt
-   ```
+You will also need to set the `FSLDIR` environment variable so Nipype can locate your FSL installation. Add these lines to your `~/.bashrc`:
 
-   If you prefer to install Nipype manually instead of using `requirements.txt`:
+```bash
+export FSLDIR=/usr/local/fsl
+export PATH=$PATH:$FSLDIR/bin
+source $FSLDIR/etc/fslconf/fsl.sh
+```
 
-   ```bash
-   pip install nipype>=1.8.0
-   ```
-
-   This also installs Nipype's key dependencies automatically, including [NetworkX](https://networkx.org/), [Traits](https://docs.enthought.com/traits/), [nibabel](https://nipy.org/nibabel/), and [niworkflows](https://nipreps.org/niworkflows/) — no manual step is needed.
-
-4. **Verify the installation**:
-
-   ```bash
-   python3 -c "import nipype; print(nipype.__version__)"
-   ```
-
-5. **Set FSL environment variables** — Nipype needs to know where FSL is installed. If you used the default FSL installer, add these to your `~/.bashrc`:
-
-   ```bash
-   export FSLDIR=/usr/local/fsl
-   export PATH=$PATH:$FSLDIR/bin
-   source $FSLDIR/etc/fslconf/fsl.sh
-   ```
-
-   Nipype will auto-detect FSL interfaces once `FSLDIR` is set. See the [Nipype FSL interface docs](https://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.fsl.html) for details.
-
-> **Note:** If you are not using FSL's conda-based installation, set `FSLDIR` to wherever FSL is installed on your system (e.g. `/home/username/fsl`).
+See the [Nipype FSL interface docs](https://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.fsl.html) for details.
 
 ## Obtaining a BSE reference mask
 
