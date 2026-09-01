@@ -38,11 +38,55 @@ Close and reopen your terminal once it finishes. For custom/advanced installs, d
 3. Add `/opt/BrainSuite23a/bin` to your `PATH`.
 4. BrainSuite's GUI and some tools additionally require MATLAB Compiler Runtime (MCR) 2023a — install this first. See this [BrainSuite/Brainstorm install walkthrough](https://neuroimage.usc.edu/brainstorm/Tutorials/BstBrainSuite) for details.
 
-### Python dependencies
+### Setting up Python and Nipype
 
-```bash
-pip install -r requirements.txt
-```
+This pipeline uses [Nipype](https://nipype.readthedocs.io/) to orchestrate FSL and BrainSuite as workflow nodes. It is recommended to install it inside a virtual environment to avoid conflicts with system packages.
+
+1. **Check your Python version** (3.8+ required):
+
+   ```bash
+   python3 --version
+   ```
+
+2. **Create a virtual environment**:
+
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install Nipype** and all Python dependencies:
+
+   ```bash
+   pip install --upgrade pip
+   pip install -r requirements.txt
+   ```
+
+   If you prefer to install Nipype manually instead of using `requirements.txt`:
+
+   ```bash
+   pip install nipype>=1.8.0
+   ```
+
+   This also installs Nipype's key dependencies automatically, including [NetworkX](https://networkx.org/), [Traits](https://docs.enthought.com/traits/), [nibabel](https://nipy.org/nibabel/), and [niworkflows](https://nipreps.org/niworkflows/) — no manual step is needed.
+
+4. **Verify the installation**:
+
+   ```bash
+   python3 -c "import nipype; print(nipype.__version__)"
+   ```
+
+5. **Set FSL environment variables** — Nipype needs to know where FSL is installed. If you used the default FSL installer, add these to your `~/.bashrc`:
+
+   ```bash
+   export FSLDIR=/usr/local/fsl
+   export PATH=$PATH:$FSLDIR/bin
+   source $FSLDIR/etc/fslconf/fsl.sh
+   ```
+
+   Nipype will auto-detect FSL interfaces once `FSLDIR` is set. See the [Nipype FSL interface docs](https://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.fsl.html) for details.
+
+> **Note:** If you are not using FSL's conda-based installation, set `FSLDIR` to wherever FSL is installed on your system (e.g. `/home/username/fsl`).
 
 ## Obtaining a BSE reference mask
 
@@ -78,23 +122,10 @@ The script interactively prompts for:
 - Skull/scalp intensity thresholds (defaults: 53 / 116)
 - The BrainSuite `bin` folder (auto-detected if in the default location, otherwise entered manually)
 
-## Known limitations (from testing so far)
-
-- Temporal-bone regions can remain incomplete even after BET/Skullfinder threshold tuning.
-- Orbital roof / anterior skull-base coverage is sometimes missing.
-- Segmentation quality is scanner-dependent (differences observed between Philips and Siemens acquisitions).
-
-## Roadmap
-
-- Benchmark BET `-f` (fractional intensity threshold) and `-g` (vertical gradient) presets per scanner vendor
-- Evaluate bias-field correction (N3/N4) and SPM segmentation as complementary preprocessing steps
-- Extract skull-thickness metrics from inner/outer skull meshes
-- Long-term goal: extend toward infant, forensic, and archaeological skull-segmentation applications
-
-## Screenshots
-
-_Add before/after BSE and BET mask screenshots here._
-
 ## License
 
-MIT — see [LICENSE](LICENSE).
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details. Note that the test data referenced above is distributed under a separate CC BY-NC license and is not included in this repository.
+
+## Adding screenshots
+
+Screenshots of BSE/BET segmentation results can be placed in `docs/screenshots/`. Do not commit real patient MRI data — only use the provided tutorial dataset or de-identified images.
