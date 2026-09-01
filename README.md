@@ -94,7 +94,7 @@ The script interactively prompts for:
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details. Note that the test data referenced above is distributed under a separate CC BY-NC license and is not included in this repository.
 
-## screenshots
+## Sample Images
 
 <img width="584" height="498" alt="image" src="https://github.com/user-attachments/assets/99f82dc9-f1a6-4abe-a792-6456a0d8c58c" />
 
