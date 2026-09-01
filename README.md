@@ -11,7 +11,7 @@ A Nipype-orchestrated MRI pipeline that combines FSL's Brain Extraction Tool (BE
 
 ## Why a hybrid BET + Skullfinder approach
 
-Using BrainSuite's own BSE for brain extraction can under- or over-estimate the brain boundary in some regions, which then propagates into the skull/scalp surfaces Skullfinder generates. This pipeline substitutes **FSL BET's** brain mask (with its own tunable fractional-intensity and vertical-gradient parameters) as the geometric input driving Skullfinder's segmentation, in an effort to reduce known failure modes such as incomplete temporal-bone or orbital coverage.
+Using BrainSuite's own BSE for brain extraction can under- or over-estimate the brain boundary in some regions, which then propagates into the skull/scalp surfaces Skullfinder generates. This pipeline substitutes **FSL BET's** brain mask (with its own tunable fractional-intensity and vertical-gradient parameters) as the geometric input driving Skullfinder's segmentation, in an effort to reduce known failure modes such as extra signal at temporal-bone coverage.
 
 ## Requirements
 
