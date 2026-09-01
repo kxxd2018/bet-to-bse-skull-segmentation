@@ -64,8 +64,6 @@ export PATH=$PATH:$FSLDIR/bin
 source $FSLDIR/etc/fslconf/fsl.sh
 ```
 
-See the [Nipype FSL interface docs](https://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.fsl.html) for details.
-
 ## Obtaining a BSE reference mask
 
 This pipeline needs an existing BrainSuite BSE mask as the registration target for the BET mask. Generate one from your T1 image using BrainSuite's command-line `bse` tool:
