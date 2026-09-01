@@ -108,7 +108,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 <img width="440" height="439" alt="image" src="https://github.com/user-attachments/assets/e056bc05-eaba-437d-9563-ffa3afae9ea4" />
 
-*Overlapping of the two images (cyan = Brainsuite's BSE)*
+*Overlapping of the two images (cyan = Brainsuite's BSE), note extra swelling at the temporal region*
 
 <img width="733" height="545" alt="image" src="https://github.com/user-attachments/assets/e9de3402-8900-4b6c-97c5-eb19badcdc7b" />
 
