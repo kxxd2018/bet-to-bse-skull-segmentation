@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+env/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Neuroimaging data - never commit real scan data
+*.nii
+*.nii.gz
+*.mat
+nipype_work/
+BrainSuiteNipype_Tutorial.zip
