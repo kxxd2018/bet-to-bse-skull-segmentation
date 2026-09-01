@@ -110,5 +110,10 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 *Overlapping of the two images (cyan = Brainsuite's BSE)*
 
+<img width="733" height="545" alt="image" src="https://github.com/user-attachments/assets/e9de3402-8900-4b6c-97c5-eb19badcdc7b" />
+
+*BrainSuite23a interface, based on 2523412.nii*
+
+
 
 
