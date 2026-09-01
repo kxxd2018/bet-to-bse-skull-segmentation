@@ -94,6 +94,21 @@ The script interactively prompts for:
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details. Note that the test data referenced above is distributed under a separate CC BY-NC license and is not included in this repository.
 
-## Adding screenshots
+## screenshots
 
-Screenshots of BSE/BET segmentation results can be placed in `docs/screenshots/`. Do not commit real patient MRI data — only use the provided tutorial dataset or de-identified images.
+<img width="584" height="498" alt="image" src="https://github.com/user-attachments/assets/99f82dc9-f1a6-4abe-a792-6456a0d8c58c" />
+
+*Skull segmentation based on Brainsuite's original BSE*
+
+
+<img width="446" height="425" alt="image" src="https://github.com/user-attachments/assets/8d71f201-5c7f-467f-9805-96f26761891d" />
+
+*Skull segmentation based on FSL's BET*
+
+
+<img width="440" height="439" alt="image" src="https://github.com/user-attachments/assets/e056bc05-eaba-437d-9563-ffa3afae9ea4" />
+
+*Overlapping of the two images (cyan = Brainsuite's BSE)*
+
+
+
